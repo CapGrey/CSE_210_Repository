@@ -2,16 +2,6 @@
 #      Jake Rammell
 # 2. Assignment Name:
 #      Lab 01: Tic-Tac-Toe
-# 3. Assignment Description:
-#      Play the game of Tic-Tac-Toe
-# 4. What was the hardest part? Be as specific as possible.
-#      The hardest part was using the template provided. It gave
-#      a lot of helpful function headers, but some of it didn't have
-#      good comments so I did not know what it was supposed to do.
-#      The next hardest part was figuring out how to save to the json 
-#      file properly. Over all, however, it was not too hard to do.
-# 5. How long did it take for you to complete the assignment?
-#      3 hours
 
 import json
 
@@ -21,7 +11,8 @@ X = 'X'
 O = 'O'
 BLANK = ' '
 
-# This is to enhance readability
+# This is to enhance readability, "X" will be blue, "O" will be red,
+# and everything else will be green.
 BLUE = "\033[94m"
 GREEN = "\033[92m"
 RED = "\033[31m"
