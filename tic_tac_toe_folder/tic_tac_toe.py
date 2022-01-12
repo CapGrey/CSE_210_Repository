@@ -6,7 +6,6 @@
 import json
 
 # The characters used in the Tic-Tac-Toe board.
-# These are constants and therefore should never have to change.
 X = 'X'
 O = 'O'
 BLANK = ' '
@@ -17,9 +16,7 @@ BLUE = "\033[94m"
 GREEN = "\033[92m"
 RED = "\033[31m"
 
-# A blank Tic-Tac-Toe board. We should not need to change this board;
-# it is only used to reset the board to blank. This should be the format
-# of the code in the JSON file.
+# A blank Tic-Tac-Toe board.
 blank_board = [
                 "1", "2", "3",
                 "4", "5", "6",
@@ -36,6 +33,7 @@ def read_board(filename):
 
         board = board_dict["board"]
 
+    #Create a save file in one does not exist.
     except:
         board_dict = {"board": blank_board}
         with open(filename, "w") as save_file:
@@ -112,7 +110,7 @@ def play_game(board):
         try:
             index_position = int(user_position) - 1
 
-        # Confirm the space is available
+        # Confirm the space is available.
             if board[index_position] != "X" and board[index_position] != "O":
                 board[index_position] = token
 
@@ -126,10 +124,7 @@ def play_game(board):
 
 def game_done(board):
     '''Determine if the game is finished.
-       Note that this function is provided as-is.
-       You do not need to edit it in any way.
-       If message == True, then we display a message to the user.
-       Otherwise, no message is displayed. '''
+    '''
 
     game_end = False
     # Game is finished if someone has completed a row.
@@ -171,17 +166,18 @@ def game_done(board):
     else:
         return False
 
-# These user-instructions are provided and do not need to be changed.
-print("Enter 'q' to suspend your game. Otherwise, enter a number from 1 to 9")
-print("where the following numbers correspond to the locations on the grid:")
-print(" 1 | 2 | 3 ")
-print("---+---+---")
-print(" 4 | 5 | 6 ")
-print("---+---+---")
-print(" 7 | 8 | 9 \n")
-print("The current board is:")
+
 
 def main():
+    # display the instructions to the user.
+    print("Enter 'q' to suspend your game. Otherwise, enter a number from 1 to 9")
+    print("where the following numbers correspond to the locations on the grid:")
+    print(" 1 | 2 | 3 ")
+    print("---+---+---")
+    print(" 4 | 5 | 6 ")
+    print("---+---+---")
+    print(" 7 | 8 | 9 \n")
+    print("The current board is:")
     # retrieve the board.
     game_finished = False
     board = read_board(json_file)
