@@ -8,7 +8,7 @@ import json
 # The characters used in the Tic-Tac-Toe board.
 X = 'X'
 O = 'O'
-BLANK = ' '
+
 
 # This is to enhance readability, "X" will be blue, "O" will be red,
 # and everything else will be green.
@@ -131,21 +131,21 @@ def game_done(board):
     win = False
 
     for row in range(3):
-        if board[row * 3] != BLANK and board[row * 3] == board[row * 3 + 1] == board[row * 3 + 2]:
+        if board[row * 3] == board[row * 3 + 1] == board[row * 3 + 2]:
             print("The game was won by", board[row * 3])
             game_end = True
             win = True
 
     # Game is finished if someone has completed a column.
     for col in range(3):
-        if board[col] != BLANK and board[col] == board[3 + col] == board[6 + col] and win == False:
+        if board[col] == board[3 + col] == board[6 + col] and win == False:
             print("The game was won by", board[col])
             game_end = True
             win = True
 
     # Game is finished if someone has a diagonal.
-    if board[4] != BLANK and (board[0] == board[4] == board[8] or
-                              board[2] == board[4] == board[6]) and win == False:
+    if (board[0] == board[4] == board[8] or
+            board[2] == board[4] == board[6]) and win == False:
         print("The game was won by", board[4])
         game_end = True
         win = True
